@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <h2>회원가입</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(최소한 <%= @minimum_password_length %> 글자)</em>
+      <% end %><br />
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class="actions mt-3">
+      <%= f.submit "회원가입" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
