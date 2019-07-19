@@ -1,0 +1,16 @@
+ko:
+  attributes:
+    user: 사용자
+    category: 카테고리
+    title: 제목
+    image: 이미지
+    created_at: 생성날짜
+    updated_at: 수정날짜
+    position: 인덱스
+    price: 가격
+    description: 상세설명
+  activerecord:
+    models:
+      admin_user: 관리자
+      item: 상품
+      category: 카테고리

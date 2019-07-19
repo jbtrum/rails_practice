@@ -1,2 +1,15 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @item.image.url, class: "img-thumbnail" %>
+    </div>
+    <div class="col-md-8">
+      <h3><%= @item.title %></h3>
+      <p><%= number_with_delimiter @item.price %>원</p>
+      <p><%= @item.description %></p>
+      <%= link_to current_user.has_item?(@item) ? "찜취소하기" : "찜하기", toggle_item_path(@item), class: "btn btn-primary" %>
+      <%= link_to("구매하기", "", class: "btn btn-light") %>
+    </div>
+  </div>
+
+</div>

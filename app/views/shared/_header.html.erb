@@ -1,0 +1,22 @@
+<div class="contianer">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand ml-3" href="#">레일즈몰</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <% Category.order(:position).each do |category| %>
+          <a class="nav-item nav-link <%= params[:category_id].to_i == category.id ? "active" : "" %>" href="<%= items_path(category_id: category.id) %>"><%= category.title %></a>
+        <% end %>
+        <% if current_user %>
+          <%= link_to("로그아웃", destroy_user_session_path, method: :delete, class: "nav-item nav-link") %>
+        <% else %>
+          <%= link_to("로그인", new_user_session_path, class: "nav-item nav-link") %>
+          <%= link_to("회원가입", new_user_registration_path, class: "nav-item nav-link") %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</div>
